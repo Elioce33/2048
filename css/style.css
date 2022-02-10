@@ -4,18 +4,17 @@ body {
     position: absolute;
 
     background-color: rgb(241, 223, 178);
-}
-
-h1 {
     text-align: center;
 }
 
-.tab_2048 {
+.game_board {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
 
+.tab_2048 {
     background-color: rgb(127, 147, 157);
     box-shadow: 15px 15px 6px 1px rgba(0, 0, 0, 0.2);
     border-collapse: collapse;
@@ -32,7 +31,6 @@ h1 {
     width: 100px;
     height: 100px;
 
-    text-align: center;
     line-height: 100px;
     font-size: 1.5em;
 
@@ -88,4 +86,13 @@ h1 {
 
 .tab_2048 .c4096 {
     background-color: rgb(255, 194, 194);
+}
+
+.button_panel {
+}
+
+.button_panel button {
+    height: 50px;
+    width: 100px;
+    margin: 10px;
 }
