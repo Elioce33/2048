@@ -54,7 +54,7 @@ export default class Table {
                     let newL = l;
                     let newC = 0;
 
-                    while (newC<this.size && !this.isEmpty(newL, newC)) newC++; // tant que c'est pas vide je check la case d'à côté
+                    while (newC < c && !this.isEmpty(newL, newC)) newC++; // tant que c'est pas vide je check la case d'à côté
 
                     this.switchCell(newL, newC, l, c, cell);
                 }
@@ -70,7 +70,7 @@ export default class Table {
                     let newL = 0;
                     let newC = c;
 
-                    while (newL<this.size && !this.isEmpty(newL, newC)) newL++;
+                    while (newL < l && !this.isEmpty(newL, newC)) newL++;
 
                     this.switchCell(newL, newC, l, c, cell);
                 }
@@ -88,7 +88,7 @@ export default class Table {
                     let newL = this.size-1;
                     let newC = c;
 
-                    while (!this.isEmpty(newL, newC) && newL>=0) newL--;
+                    while (newL >= l && !this.isEmpty( newL, newC)) newL--;
 
                     this.switchCell(newL, newC, l, c, cell);
                 }
@@ -106,7 +106,7 @@ export default class Table {
                     let newL = l;
                     let newC = this.size-1;
 
-                    while (!this.isEmpty(newL, newC) && newC>=0) newC--;
+                    while (newC >= c && !this.isEmpty(newL, newC)) newC--;
 
                     this.switchCell(newL, newC, l, c, cell);
                 }
