@@ -1,19 +1,15 @@
-import Row from "./Row.js";
-
 export default class Table {
-    rows;
+    array;
 
-    constructor(size) {
-        this.rows = [];
-        for (let i = 0; i < size; i++) {
-            this.rows.push(new Row(size));
-        }
-
+    constructor(array) {
+        this.array = array;
     }
 
     render() {
-        return `${this.rows.map((e) => {
-            return e.render()
-        }).join("\n")}`;
+        return this.array.map( (line) => {
+            return `<tr>${line.map((cell) => {
+                return cell.render();
+            }).join('\n')}</tr>`
+        }).join('\n\n');
     }
 }
