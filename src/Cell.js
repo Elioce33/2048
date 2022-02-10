@@ -10,7 +10,9 @@ export default class Cell {
     }
 
     render() {
-        return `<td class="cell_${this.value}">${this.value}</td>`;
+        return `<td class="cell c${this.value}">
+                    <span>${this.value}</span>
+                </td>`;
     }
 
 }

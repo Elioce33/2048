@@ -2,6 +2,8 @@ body {
     height: 98%;
     width: 99%;
     position: absolute;
+
+    background-color: rgb(241, 223, 178);
 }
 
 h1 {
@@ -14,27 +16,60 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    background-color: rgb(241, 241, 241);
+    /*background-color: rgb(241, 241, 241);*/
+    background-color: rgb(127, 147, 157);
     box-shadow: 10px 10px 3px 1px rgba(0, 0, 0, 0.2);
     border-collapse: collapse;
+
+    border-radius: 10px;
+    padding: 5px;
+    display: inline-block;
 }
 
-table, th {
-    border: 2px solid black;
+.tab_2048, th {
+    /*border: 2px solid black;*/
 }
 
 td, th {
-    padding: 5px;
+    /*padding: 5px;*/
 }
 
-td {
-    width: 80px;
-    height: 80px;
-    border: 1px solid black;
+.tab_2048 .cell {
+    display: inline-block;
+    margin: 5px;
+
+    width: 100px;
+    height: 100px;
+
     text-align: center;
+    line-height: 100px;
+    font-size: 1.5em;
+
+    border-radius: 10px;
+    background-color: rgb(89, 116, 129);
 }
 
-.tab_2048 .cell_2 {
-    background-color: rgba(250, 215, 160, 0.3);
+.tab_2048 .c2 {
+    background-color: rgb(255, 227, 194);
+}
+
+.tab_2048 .c4 {
+    background-color: rgb(253, 255, 194);
+}
+
+.tab_2048 .c8 {
+    background-color: rgb(209, 255, 194);
+}
+
+.tab_2048 .c16 {
+    background-color: rgb(194, 255, 232);
+}
+
+.tab_2048 .c32 {
+    background-color: rgb(194, 206, 255);
+}
+
+.tab_2048 .c64 {
+    background-color: rgb(238, 194, 255);
 }
 
