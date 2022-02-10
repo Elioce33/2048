@@ -29,6 +29,7 @@ const b_right = document.querySelector("#right");
 b_left.addEventListener('click', (event) => {
     event.preventDefault();
     console.log("left");
+
     tab.moveLeft();
     tab_2048.innerHTML = tab.render();
 })
@@ -36,6 +37,7 @@ b_left.addEventListener('click', (event) => {
 b_up.addEventListener('click', (event) => {
     event.preventDefault();
     console.log("up");
+
     tab.moveUp();
     tab_2048.innerHTML = tab.render();
 })
@@ -43,6 +45,7 @@ b_up.addEventListener('click', (event) => {
 b_down.addEventListener('click', (event) => {
     event.preventDefault();
     console.log("down");
+
     tab.moveDown();
     tab_2048.innerHTML = tab.render();
 })

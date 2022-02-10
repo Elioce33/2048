@@ -30,4 +30,83 @@ export default class Table {
         return this.array[l][c].value === 0;
     }
 
+    moveLeft() {
+        this.array.forEach( (row, l) => {
+            row.forEach( (cell, c) => {
+                if(cell.value !== 0) {
+                    // console.log(`${cell.value} : ${l}-${c}`);
+                    let newL = l;
+                    let newC = 0;
+
+                    while (!this.isEmpty(newL, newC) && newC<this.size) newC++;
+
+                    this.array[newL][newC] = cell;
+                    this.array[l][c] = new Cell(0);
+
+                    // console.log(`move to : ${newL}-${newC}`);
+                }
+            });
+        });
+    }
+
+    moveUp() {
+        this.array.forEach( (row, l) => {
+            row.forEach( (cell, c) => {
+                if(cell.value !== 0) {
+                    // console.log(`${cell.value} : ${l}-${c}`);
+                    let newL = 0;
+                    let newC = c;
+
+                    while (!this.isEmpty(newL, newC) && newL<this.size) newL++;
+
+                    this.array[newL][newC] = cell;
+                    this.array[l][c] = new Cell(0);
+
+                    // console.log(`move to : ${newL}-${newC}`);
+                }
+            });
+        });
+    }
+
+    moveDown() {
+        for (let l = this.size-1; l >= 0; l--) {
+            for (let c = 0; c < this.size; c++) {
+                let cell = this.array[l][c];
+
+                if(cell.value !== 0) {
+                    // console.log(`${cell.value} : ${l}-${c}`);
+                    let newL = this.size-1;
+                    let newC = c;
+
+                    while (!this.isEmpty(newL, newC) && newL>=0) newL--;
+
+                    this.array[newL][newC] = cell;
+                    this.array[l][c] = new Cell(0);
+
+                    // console.log(`move to : ${newL}-${newC}`);
+                }
+            }
+        }
+    }
+
+    moveRight() {
+        for (let l = 0; l < this.size; l++) {
+            for (let c = this.size-1; c >= 0; c--) {
+                let cell = this.array[l][c];
+
+                if(cell.value !== 0) {
+                    // console.log(`${cell.value} : ${l}-${c}`);
+                    let newL = l;
+                    let newC = this.size-1;
+
+                    while (!this.isEmpty(newL, newC) && newC>=0) newC--;
+
+                    this.array[newL][newC] = cell;
+                    this.array[l][c] = new Cell(0);
+
+                    // console.log(`move to : ${newL}-${newC}`);
+                }
+            }
+        }
+    }
 }
