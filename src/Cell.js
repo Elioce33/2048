@@ -2,7 +2,7 @@ export default class Cell {
     value;
 
     constructor(value) {
-        this.value = value===0?'':value;
+        this.value = value;
     }
 
     set value(value) {
@@ -11,7 +11,7 @@ export default class Cell {
 
     render() {
         return `<td class="cell c${this.value}">
-                    <span>${this.value}</span>
+                    <span>${this.value===0?'':this.value}</span>
                 </td>`;
     }
 
