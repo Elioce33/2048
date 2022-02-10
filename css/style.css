@@ -16,7 +16,6 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
 
-    /*background-color: rgb(241, 241, 241);*/
     background-color: rgb(127, 147, 157);
     box-shadow: 15px 15px 6px 1px rgba(0, 0, 0, 0.2);
     border-collapse: collapse;
@@ -24,14 +23,6 @@ h1 {
     border-radius: 10px;
     padding: 15px;
     display: inline-block;
-}
-
-.tab_2048, th {
-    /*border: 2px solid black;*/
-}
-
-td, th {
-    /*padding: 5px;*/
 }
 
 .tab_2048 .cell {
@@ -52,26 +43,49 @@ td, th {
 }
 
 .tab_2048 .c2 {
-    background-color: rgb(255, 227, 194);
+    background-color: rgb(255, 231, 194);
 }
 
 .tab_2048 .c4 {
-    background-color: rgb(253, 255, 194);
+    background-color: rgb(255, 245, 194);
 }
 
 .tab_2048 .c8 {
-    background-color: rgb(209, 255, 194);
+    background-color: rgb(238, 255, 194);
 }
 
 .tab_2048 .c16 {
-    background-color: rgb(194, 255, 232);
+    background-color: rgb(209, 255, 194);
 }
 
 .tab_2048 .c32 {
-    background-color: rgb(194, 206, 255);
+    background-color: rgb(194, 255, 218);
 }
 
 .tab_2048 .c64 {
-    background-color: rgb(238, 194, 255);
+    background-color: rgb(194, 255, 248);
 }
 
+.tab_2048 .c128 {
+    background-color: rgb(194, 230, 255);
+}
+
+.tab_2048 .c256 {
+    background-color: rgb(194, 208, 255);
+}
+
+.tab_2048 .c512 {
+    background-color: rgb(207, 194, 255);
+}
+
+.tab_2048 .c1024 {
+    background-color: rgb(231, 194, 255);
+}
+
+.tab_2048 .c2048 {
+    background-color: rgb(255, 194, 243);
+}
+
+.tab_2048 .c4096 {
+    background-color: rgb(255, 194, 194);
+}
