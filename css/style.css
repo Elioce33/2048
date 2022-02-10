@@ -34,7 +34,7 @@ td {
     text-align: center;
 }
 
-
-
-
+.tab_2048 .cell_2 {
+    background-color: rgba(250, 215, 160, 0.3);
+}
 
