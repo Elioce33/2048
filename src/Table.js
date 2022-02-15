@@ -44,28 +44,53 @@ export default class Table {
         return this.array[l][c].isEmpty();
     }
 
-    switchCell(newL, newC, l, c, cell) {
-        console.log(`looking for : ${newL}-${newC}`);
-        if ((newL !== l || newC !== c) && this.isEmpty(newL, newC)) {
-            this.array[newL][newC] = cell;
-            this.array[l][c] = new Cell(0);
-            console.log(`move ${cell.value} to : ${newL}-${newC}`);
-        } else {
-            console.log(`cant move ${cell.value} : ${newL}-${newC}`);
+    moveORFusion(l, c, x, y) {
+        let newL = l + x;
+        let newC = c + y;
+
+        if (!this.isOutSide(newL, newC)) {
+            let focus = this.array[newL][newC];
+            let current = this.array[l][c];
+
+            if(this.isEmpty(newL, newC)) { /* move */
+                focus.value = (current.value);
+                current.setEmpty();
+
+                this.moveORFusion(newL, newC, x, y);
+            } else { /* fusion */
+                if(!focus.fused) {
+                    if(focus.value === current.value) {
+                        focus.fusion(current);
+                    }
+                }
+            }
         }
     }
+
+    move(l, c, direction) {
+        switch (direction) {
+            case 'LEFT':
+                this.moveORFusion(l, c, 0, -1);
+                break;
+            case 'UP':
+                this.moveORFusion(l, c, -1, 0);
+                break;
+            case 'DOWN':
+                this.moveORFusion(l, c, 1, 0);
+                break;
+            case 'RIGHT':
+                this.moveORFusion(l, c, 0, 1);
+                break;
+
+        }
+    }
+
 
     moveLeft() {
         this.array.forEach( (row, l) => {
             row.forEach( (cell, c) => {
-                if(cell.value !== 0) {
-                    console.log(`check ${cell.value} : ${l}-${c}`);
-                    let newL = l;
-                    let newC = 0;
-
-                    while (newC < c && !this.isEmpty(newL, newC)) newC++; // tant que c'est pas vide je check la case d'à côté
-
-                    this.switchCell(newL, newC, l, c, cell);
+                if(!cell.isEmpty()) {
+                    this.move(l,c, 'LEFT');
                 }
             });
         });
@@ -74,14 +99,8 @@ export default class Table {
     moveUp() {
         this.array.forEach( (row, l) => {
             row.forEach( (cell, c) => {
-                if(cell.value !== 0) {
-                    // console.log(`${cell.value} : ${l}-${c}`);
-                    let newL = 0;
-                    let newC = c;
-
-                    while (newL < l && !this.isEmpty(newL, newC)) newL++;
-
-                    this.switchCell(newL, newC, l, c, cell);
+                if(!cell.isEmpty()) {
+                    this.move(l,c, 'UP');
                 }
             });
         });
@@ -89,37 +108,22 @@ export default class Table {
 
     moveDown() {
         for (let l = this.size-1; l >= 0; l--) {
-            for (let c = 0; c < this.size; c++) {
-                let cell = this.array[l][c];
-
-                if(cell.value !== 0) {
-                    // console.log(`${cell.value} : ${l}-${c}`);
-                    let newL = this.size-1;
-                    let newC = c;
-
-                    while (newL >= l && !this.isEmpty( newL, newC)) newL--;
-
-                    this.switchCell(newL, newC, l, c, cell);
+            this.array[l].forEach( (cell, c) => {
+                if(!cell.isEmpty()) {
+                    this.move(l,c, 'DOWN');
                 }
-            }
+            });
         }
     }
 
     moveRight() {
-        for (let l = 0; l < this.size; l++) {
-            for (let c = this.size-1; c >= 0; c--) {
-                let cell = this.array[l][c];
-
-                if(cell.value !== 0) {
-                    // console.log(`${cell.value} : ${l}-${c}`);
-                    let newL = l;
-                    let newC = this.size-1;
-
-                    while (newC >= c && !this.isEmpty(newL, newC)) newC--;
-
-                    this.switchCell(newL, newC, l, c, cell);
+        this.array.forEach( (row, l) => {
+            for (let c = this.size-1; c >= 0; c--){
+                const cell = row[c];
+                if(!cell.isEmpty()) {
+                    this.move(l,c, 'RIGHT');
                 }
             }
-        }
+        });
     }
 }
