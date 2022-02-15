@@ -30,9 +30,18 @@ export default class Table {
         else this.addRandomCell();
     }
 
+    isOutSide(l, c) {
+        if(l < 0) return true;
+        if(l >= this.size) return true;
+
+        if(c < 0) return true;
+        if(c >= this.size) return true;
+
+        return false;
+    }
+
     isEmpty(l, c) {
-        if(l >= this.size || c >= this.size || l < 0 || c < 0) return false;
-        return this.array[l][c].value === 0;
+        return this.array[l][c].isEmpty();
     }
 
     switchCell(newL, newC, l, c, cell) {
