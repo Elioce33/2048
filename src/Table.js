@@ -26,7 +26,7 @@ export default class Table {
         let c = Math.floor(Math.random() * this.size);
 
         if(this.isEmpty(l,c))
-            this.array[l][c] = new Cell(2);
+            this.array[l][c] = new Cell(Math.floor(Math.random()*10)>=7?4:2);
         else this.addRandomCell();
     }
 
