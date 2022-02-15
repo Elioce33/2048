@@ -25,7 +25,7 @@ b_left.addEventListener('click', (event) => {
     event.preventDefault();
     console.log("left");
 
-    tab.moveLeft();
+    if(tab.moveLeft()) tab.addRandomCell();
     tab_2048.innerHTML = tab.render();
 })
 
@@ -33,7 +33,7 @@ b_up.addEventListener('click', (event) => {
     event.preventDefault();
     console.log("up");
 
-    tab.moveUp();
+    if(tab.moveUp()) tab.addRandomCell();
     tab_2048.innerHTML = tab.render();
 })
 
@@ -41,7 +41,7 @@ b_down.addEventListener('click', (event) => {
     event.preventDefault();
     console.log("down");
 
-    tab.moveDown();
+    if (tab.moveDown()) tab.addRandomCell();
     tab_2048.innerHTML = tab.render();
 })
 
@@ -49,6 +49,6 @@ b_right.addEventListener('click', (event) => {
     event.preventDefault();
     console.log("right");
 
-    tab.moveRight();
+    if (tab.moveRight()) tab.addRandomCell();
     tab_2048.innerHTML = tab.render();
 })
