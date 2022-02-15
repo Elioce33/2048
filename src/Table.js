@@ -135,7 +135,6 @@ export default class Table {
             for (let c = this.size-1; c >= 0; c--){
                 const cell = row[c];
                 if(!cell.isEmpty()) {
-                    console.log(`cell[${l}][${c}]:${cell.value}`);
                     haveChange |= this.move(l,c, 'RIGHT');
                 }
             }
