@@ -21,30 +21,37 @@ const b_down = document.querySelector("#down");
 const b_right = document.querySelector("#right");
 
 
-b_left.addEventListener('click', (event) => {
-    event.preventDefault();
-
+function moveLeft() {
     if(tab.moveLeft()) tab.addRandomCell();
     tab_2048.innerHTML = tab.render();
-})
+}
 
-b_up.addEventListener('click', (event) => {
-    event.preventDefault();
-
+function moveUp() {
     if(tab.moveUp()) tab.addRandomCell();
     tab_2048.innerHTML = tab.render();
-})
+}
 
-b_down.addEventListener('click', (event) => {
-    event.preventDefault();
-
+function moveDown() {
     if (tab.moveDown()) tab.addRandomCell();
     tab_2048.innerHTML = tab.render();
-})
+}
 
-b_right.addEventListener('click', (event) => {
-    event.preventDefault();
-
+function moveRight() {
     if (tab.moveRight()) tab.addRandomCell();
     tab_2048.innerHTML = tab.render();
+}
+
+b_left.addEventListener('click', moveLeft);
+b_up.addEventListener('click', moveUp);
+b_down.addEventListener('click', moveDown);
+b_right.addEventListener('click', moveRight);
+
+document.addEventListener("keyup", (event) => {
+    console.log(event.key);
+
+    const keypressed = event.key;
+    if(keypressed === 'ArrowLeft') moveLeft();
+    if(keypressed === 'ArrowUp') moveUp();
+    if(keypressed === 'ArrowDown') moveDown();
+    if(keypressed === 'ArrowRight') moveRight();
 })
