@@ -1,6 +1,6 @@
 # Game 2048 in JavaScript application
 
-It's just the 2048 game that I'm redoing in js for fun.
+It's just the [2048](http://20.101.124.131/2048) game that I'm redoing in js for fun.
 
 ## Difference with the original :
 - I change le color as my way
