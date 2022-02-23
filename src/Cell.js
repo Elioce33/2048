@@ -19,6 +19,11 @@ export default class Cell {
         this.value = 0;
     }
 
+    isSame(other) {
+        if(other === undefined) return false;
+        return other.value === this.value;
+    }
+
     fusion(old) {
         this.value *= 2;
         this.fused = true;
