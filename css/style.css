@@ -1,17 +1,17 @@
 body {
-    height: 98%;
-    width: 99%;
+    width: 100%;
     position: absolute;
+    overflow: hidden;
 
     background-color: rgb(241, 223, 178);
     text-align: center;
 }
 
 .game_board {
-    position: absolute;
+    /*position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);*/
 }
 
 .tab_2048 {
@@ -40,53 +40,18 @@ body {
     box-shadow: inset 10px 10px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
-.tab_2048 .c2 {
-    background-color: rgb(255, 213, 153);
-}
-
-.tab_2048 .c4 {
-    background-color: rgb(253, 241, 153);
-}
-
-.tab_2048 .c8 {
-    background-color: rgb(220, 253, 131);
-}
-
-.tab_2048 .c16 {
-    background-color: rgb(158, 255, 127);
-}
-
-.tab_2048 .c32 {
-    background-color: rgb(164, 255, 199);
-}
-
-.tab_2048 .c64 {
-    background-color: rgb(153, 255, 243);
-}
-
-.tab_2048 .c128 {
-    background-color: rgb(153, 213, 253);
-}
-
-.tab_2048 .c256 {
-    background-color: rgb(164, 186, 255);
-}
-
-.tab_2048 .c512 {
-    background-color: rgb(177, 154, 255);
-}
-
-.tab_2048 .c1024 {
-    background-color: rgb(209, 147, 255);
-}
-
-.tab_2048 .c2048 {
-    background-color: rgb(255, 142, 232);
-}
-
-.tab_2048 .c4096 {
-    background-color: rgb(255, 135, 135);
-}
+.tab_2048 .c2 { background-color: rgb(255, 213, 153); }
+.tab_2048 .c4 { background-color: rgb(253, 241, 153); }
+.tab_2048 .c8 { background-color: rgb(220, 253, 131); }
+.tab_2048 .c16 { background-color: rgb(158, 255, 127); }
+.tab_2048 .c32 { background-color: rgb(164, 255, 199); }
+.tab_2048 .c64 { background-color: rgb(153, 255, 243); }
+.tab_2048 .c128 { background-color: rgb(153, 213, 253); }
+.tab_2048 .c256 { background-color: rgb(164, 186, 255); }
+.tab_2048 .c512 { background-color: rgb(177, 154, 255); }
+.tab_2048 .c1024 { background-color: rgb(209, 147, 255); }
+.tab_2048 .c2048 { background-color: rgb(255, 142, 232); }
+.tab_2048 .c4096 { background-color: rgb(255, 135, 135); }
 
 .button_panel {
 }
@@ -95,4 +60,35 @@ body {
     height: 50px;
     width: 100px;
     margin: 10px;
+}
+
+
+@media screen and (min-width: 500px)
+{
+
+    .tab_2048 .cell {
+        width: 200px;
+        height: 200px;
+        line-height: 200px;
+
+        font-size: 3em;
+    }
+
+
+
+
+    .button_panel {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button_panel button {
+        height: 150px;
+        width: 300px;
+        font-size: 2em;
+
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%;
+    }
 }
