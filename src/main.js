@@ -54,7 +54,6 @@ b_down.addEventListener('click', moveDown);
 b_right.addEventListener('click', moveRight);
 
 document.addEventListener("keyup", (event) => {
-    console.log(event.key);
 
     const keypressed = event.key;
     if(keypressed === 'ArrowLeft') moveLeft();
