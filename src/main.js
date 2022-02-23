@@ -13,32 +13,39 @@ for (let i = 0; i < 4; i++){
 const tab = new Table(valuesTab);
 tab.addRandomCell();
 
-tab_2048.innerHTML = tab.render();
+function render() {
+    tab_2048.innerHTML = tab.render();
+    if(tab.isFull()) {
+        if(!tab.canMoveOne()) alert("game over");
+    }
+}
+
+
+render();
 
 const b_left = document.querySelector("#left");
 const b_up = document.querySelector("#up");
 const b_down = document.querySelector("#down");
 const b_right = document.querySelector("#right");
 
-
 function moveLeft() {
     if(tab.moveLeft()) tab.addRandomCell();
-    tab_2048.innerHTML = tab.render();
+    render();
 }
 
 function moveUp() {
     if(tab.moveUp()) tab.addRandomCell();
-    tab_2048.innerHTML = tab.render();
+    render();
 }
 
 function moveDown() {
     if (tab.moveDown()) tab.addRandomCell();
-    tab_2048.innerHTML = tab.render();
+    render();
 }
 
 function moveRight() {
     if (tab.moveRight()) tab.addRandomCell();
-    tab_2048.innerHTML = tab.render();
+    render();
 }
 
 b_left.addEventListener('click', moveLeft);

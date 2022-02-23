@@ -21,6 +21,46 @@ export default class Table {
         this.array[l][c] = new Cell(value);
     }
 
+    canMove(l, c) {
+        let currentCell = this.array[l][c];
+
+        if(currentCell.isSame(l+1<this.size?this.array[l+1][c]:undefined)) return true;
+        if(currentCell.isSame(l-1>=0?this.array[l-1][c]:undefined)) return true;
+        if(currentCell.isSame(c+1<this.size?this.array[l][c+1]:undefined)) return true;
+        if(currentCell.isSame(c-1>=0?this.array[l][c-1]:undefined)) return true;
+
+        return false;
+    }
+
+    canMoveOne() {
+        let oneCanMove = false;
+
+        this.array.forEach( (row, l) => {
+            row.forEach( (cell, c) => {
+                if(this.canMove(l, c)) {
+                    console.log(`this can move : ${this.array[l][c].value} \t: [${l}, ${c}] ==> ${this.isEmpty(l, c)}`);
+                    oneCanMove = true;
+                }
+            });
+        });
+
+        return oneCanMove;
+    }
+
+    isFull() {
+        let oneEmpty = false;
+
+        this.array.forEach( (row, l) => {
+            row.forEach( (cell, c) => {
+                oneEmpty |= this.isEmpty(l, c);
+            });
+        });
+
+        if(!oneEmpty) console.warn("tab is Full");
+
+        return !oneEmpty;
+    }
+
     addRandomCell() {
         let l = Math.floor(Math.random() * this.size);
         let c = Math.floor(Math.random() * this.size);
