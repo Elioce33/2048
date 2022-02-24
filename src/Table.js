@@ -21,6 +21,17 @@ export default class Table {
         this.array[l][c] = new Cell(value);
     }
 
+    contains(value) {
+        let contains = false;
+        this.array.forEach( (row, l) => {
+            row.forEach( (cell, c) => {
+                if(this.array[l][c].value === value) contains = true;
+            });
+        });
+
+        return contains;
+    }
+
     canMove(l, c) {
         let currentCell = this.array[l][c];
 
@@ -101,7 +112,7 @@ export default class Table {
                 this.moveORFusion(newL, newC, x, y);
             } else { /* fusion */
                 if(!focus.fused) {
-                    if(focus.value === current.value) {
+                    if(focus.isSame(current)) {
                         focus.fusion(current);
                         haveChange = true;
                     }
