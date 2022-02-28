@@ -1,4 +1,5 @@
 import Cell from "./Cell.js";
+import {addToScore} from "./main.js";
 
 export default class Table {
     array;
@@ -113,7 +114,8 @@ export default class Table {
             } else { /* fusion */
                 if(!focus.fused) {
                     if(focus.isSame(current)) {
-                        focus.fusion(current);
+                        let newValue = focus.fusion(current);
+                        addToScore(newValue);
                         haveChange = true;
                     }
                 }

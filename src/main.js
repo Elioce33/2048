@@ -2,6 +2,8 @@ import Table from "./Table.js";
 import Cell from "./Cell.js";
 
 const tab_2048 = document.querySelector(".tab_2048");
+const scoreField = document.querySelector(".score");
+let score = 0;
 
 const valuesTab = []; // move to setUp()
 let asWin = false;
@@ -30,8 +32,14 @@ tab.addCell(3, 0, 2);
 tab.addCell(3, 1, 4);
 tab.addCell(3, 2, 8);*/
 
+export function addToScore(value) {
+    score += value;
+}
+
 function render() {
     tab_2048.innerHTML = tab.render();
+    scoreField.innerHTML = score + " pts";
+
     if(tab.isFull()) {
         if(!tab.canMoveOne()) alert("game over");
     }

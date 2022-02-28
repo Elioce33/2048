@@ -28,6 +28,8 @@ export default class Cell {
         this.value *= 2;
         this.fused = true;
         old.setEmpty();
+
+        return this.value;
     }
 
     render() {
