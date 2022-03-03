@@ -2,7 +2,7 @@ import Table from "./Table.js";
 import Cell from "./Cell.js";
 
 const tab_2048 = document.querySelector(".tab_2048");
-const scoreField = document.querySelector(".score");
+const scoreField = document.querySelector(".score .value");
 let score = 0;
 
 const valuesTab = []; // move to setUp()
